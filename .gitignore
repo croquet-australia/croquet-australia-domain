@@ -1,0 +1,10 @@
+artifacts/
+bin/
+obj/
+packages/
+
+*.feature.cs
+*.suo
+*.user
+
+project.lock.json
