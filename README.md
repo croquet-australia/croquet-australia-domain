@@ -8,5 +8,3 @@ This branch, `phase2/master`, is the current development branch.
 
 - Add NuGet packages:
     - Anotar.???.Fody
-    - EmptyStringGuard.Fody
-    - NullGuard.Fody
