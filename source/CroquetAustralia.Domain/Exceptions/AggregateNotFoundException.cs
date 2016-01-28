@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace CroquetAustralia.Domain.Specifications.Mocks
+namespace CroquetAustralia.Domain.Exceptions
 {
-    internal class AggregateNotFoundException : Exception
+    public class AggregateNotFoundException : Exception
     {
-        internal AggregateNotFoundException(Type type, Guid aggregateId) : base(CreateMessage(type, aggregateId))
+        public AggregateNotFoundException(Type type, Guid aggregateId) : base(CreateMessage(type, aggregateId))
         {
         }
 

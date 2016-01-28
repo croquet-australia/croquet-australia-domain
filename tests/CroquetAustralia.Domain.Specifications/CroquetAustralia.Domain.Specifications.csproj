@@ -92,7 +92,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Setup.feature</DependentUpon>
     </Compile>
-    <Compile Include="Mocks\EntityNotFoundException.cs" />
     <Compile Include="Mocks\MockEventStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\GivenData.cs" />
