@@ -74,7 +74,7 @@
     <Compile Include="ICommandHandlerProvider.cs" />
     <Compile Include="ICommandHandlers.cs" />
     <Compile Include="IEvent.cs" />
-    <Compile Include="IEvents.cs" />
+    <Compile Include="IAggregateEvents.cs" />
     <Compile Include="IEventStore.cs" />
     <Compile Include="IHandleCommand.cs" />
     <Compile Include="IServiceProviderExtensions.cs" />
