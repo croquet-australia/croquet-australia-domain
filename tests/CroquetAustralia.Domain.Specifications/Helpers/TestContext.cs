@@ -1,6 +1,7 @@
 using System;
 using CroquetAustralia.CQRS;
 using CroquetAustralia.Domain.Specifications.Mocks;
+using CroquetAustralia.Domain.Users;
 using Ninject;
 
 namespace CroquetAustralia.Domain.Specifications.Helpers
@@ -26,8 +27,9 @@ namespace CroquetAustralia.Domain.Specifications.Helpers
         {
             var kernel = new StandardKernel();
 
-            kernel.Bind<ICommandBus>().To<DomainCommandBus>();
+            kernel.Bind<ICommandBus>().To<DomainCommandBus>().InSingletonScope();
             kernel.Bind<IEventStore>().To<MockEventStore>().InSingletonScope();
+            kernel.Bind<ICommandHandlerProvider>().To<CommandHandlerProvider>();
             kernel.Bind<IServiceProvider>().ToConstant(kernel);
 
             return kernel;

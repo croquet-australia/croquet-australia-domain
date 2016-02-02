@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CroquetAustralia.CQRS", "source\CroquetAustralia.CQRS\CroquetAustralia.CQRS.csproj", "{E9A907C1-9AC1-4952-A81B-5993235BFF49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CroquetAustralia.CQRS.UnitTests", "tests\CroquetAustralia.CQRS.UnitTests\CroquetAustralia.CQRS.UnitTests.csproj", "{0498AD59-938D-4DE1-BFAD-F13DF4A0005D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{E9A907C1-9AC1-4952-A81B-5993235BFF49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9A907C1-9AC1-4952-A81B-5993235BFF49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9A907C1-9AC1-4952-A81B-5993235BFF49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0498AD59-938D-4DE1-BFAD-F13DF4A0005D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0498AD59-938D-4DE1-BFAD-F13DF4A0005D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0498AD59-938D-4DE1-BFAD-F13DF4A0005D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0498AD59-938D-4DE1-BFAD-F13DF4A0005D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

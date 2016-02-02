@@ -2,15 +2,15 @@
 
 namespace CroquetAustralia.CQRS
 {
-    internal class CommandHandlerNotFoundException : Exception
+    public class CommandHandlerNotFoundException : Exception
     {
-        internal CommandHandlerNotFoundException(ICommand command) : base(CreateMessage(command))
+        public CommandHandlerNotFoundException(ICommand command) : base(CreateMessage(command))
         {
         }
 
         private static string CreateMessage(ICommand command)
         {
-            return $"Cannot find command handler for '{command.GetType()}'.";
+            return $"Cannot find command handler for '{command}'.";
         }
     }
 }

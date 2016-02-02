@@ -2,15 +2,15 @@
 
 namespace CroquetAustralia.CQRS
 {
-    internal class ApplyEventInterfaceNotFoundException : Exception
+    public class ApplyEventInterfaceNotFoundException : Exception
     {
-        public ApplyEventInterfaceNotFoundException(AggregateBase aggregateBase, IEvent @event) : base(CreateMessage(aggregateBase, @event))
+        public ApplyEventInterfaceNotFoundException(AggregateBase aggregate, IEvent @event) : base(CreateMessage(aggregate, @event))
         {
         }
 
-        private static string CreateMessage(AggregateBase aggregateBase, IEvent @event)
+        private static string CreateMessage(AggregateBase aggregate, IEvent @event)
         {
-            return $"Cannot find IApplyEvent<{@event.GetType().Name}> on {aggregateBase.GetType().Name} aggregate.";
+            return $"Cannot find 'IApplyEvent<{@event.GetType().Name}>' on '{aggregate}'.";
         }
     }
 }

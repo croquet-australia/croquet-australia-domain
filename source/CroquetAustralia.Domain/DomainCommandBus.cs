@@ -6,8 +6,8 @@ namespace CroquetAustralia.Domain
 {
     public class DomainCommandBus : CommandBus
     {
-        public DomainCommandBus(IEventStore eventStore, IServiceProvider commandHandlersProvider)
-            : base(Assembly.GetExecutingAssembly(), eventStore, commandHandlersProvider)
+        public DomainCommandBus(ICommandHandlerProvider commandHandlersProvider, IEventStore eventStore)
+            : base(Assembly.GetExecutingAssembly(), commandHandlersProvider, eventStore)
         {
         }
     }

@@ -4,13 +4,21 @@ using System.Linq;
 
 namespace CroquetAustralia.CQRS
 {
-    public class AggregateEvents<TAggregate> : IAggregateEvents where TAggregate : IAggregate
+    public class AggregateEvents<TAggregate> : AggregateEvents where TAggregate : IAggregate
     {
         public AggregateEvents(Guid aggregateId, IEvent[] newEvents)
+            : base(typeof(TAggregate), aggregateId, newEvents)
         {
-            AggregateType = typeof(TAggregate);
+        }
+    }
+
+    public class AggregateEvents : IAggregateEvents
+    {
+        public AggregateEvents(Type aggregateType, Guid aggregateId, IEvent[] newEvents)
+        {
+            AggregateType = aggregateType;
             AggregateId = aggregateId;
-            Events = newEvents.AsEnumerable();
+            Events = newEvents.ToArray();
         }
 
         public Guid AggregateId { get; }
