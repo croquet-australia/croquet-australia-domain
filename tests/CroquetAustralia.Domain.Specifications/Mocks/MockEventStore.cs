@@ -17,39 +17,39 @@ namespace CroquetAustralia.Domain.Specifications.Mocks
             _aggregatesStore = new ConcurrentDictionary<Type, ConcurrentDictionary<Guid, List<IEvent>>>();
         }
 
-        public Task<TAggregate> GetAggregateAsync<TAggregate>(Guid aggregateId) where TAggregate : IAggregate, new()
-        {
-            ConcurrentDictionary<Guid, List<IEvent>> aggregates;
-            List<IEvent> events;
-
-            if (!_aggregatesStore.TryGetValue(typeof(TAggregate), out aggregates) || !aggregates.TryGetValue(aggregateId, out events))
-            {
-                throw new AggregateNotFoundException(typeof(TAggregate), aggregateId);
-            }
-
-            var aggregate = CreateAggregate<TAggregate>(events);
-
-            return Task.FromResult(aggregate);
-        }
-
-        public Task<IEnumerable<TAggregate>> GetAggregatesAsync<TAggregate>() where TAggregate : IAggregate, new()
-        {
-            var aggregateEvents = _aggregatesStore.GetOrAdd(typeof(TAggregate), new ConcurrentDictionary<Guid, List<IEvent>>());
-            var aggregates = aggregateEvents.Select(ae => CreateAggregate<TAggregate>(ae.Value));
-
-            return Task.Run(() => aggregates.AsEnumerable());
-        }
-
         public Task AddEventsAsync(IEnumerable<IAggregateEvents> aggregateEventsCollection)
         {
             return Task.Run(() => AddEvents(aggregateEventsCollection));
         }
 
-        private static TAggregate CreateAggregate<TAggregate>(List<IEvent> events) where TAggregate : IAggregate, new()
+        public Task<IEnumerable<IAggregateEvents>> GetAllAsync<TAggregate>() where TAggregate : IAggregate
         {
-            var aggregate = new TAggregate();
-            aggregate.ApplyEvents(events);
-            return aggregate;
+            return GetAllAsync(typeof(TAggregate));
+        }
+
+        public Task<IEnumerable<IAggregateEvents>> GetAllAsync(Type aggregateType)
+        {
+            var aggregateEvents = _aggregatesStore.GetOrAdd(aggregateType, new ConcurrentDictionary<Guid, List<IEvent>>());
+
+            return Task.Run<IEnumerable<IAggregateEvents>>(() => aggregateEvents.Select(pair => new AggregateEvents(aggregateType, pair.Key, pair.Value)));
+        }
+
+        public Task<IEnumerable<IEvent>> GetEventsAsync<TAggregate>(Guid aggregateId) where TAggregate : IAggregate
+        {
+            return GetEventsAsync(typeof(TAggregate), aggregateId);
+        }
+
+        public Task<IEnumerable<IEvent>> GetEventsAsync(Type aggregateType, Guid aggregateId)
+        {
+            ConcurrentDictionary<Guid, List<IEvent>> aggregates;
+            List<IEvent> events;
+
+            if (!_aggregatesStore.TryGetValue(aggregateType, out aggregates) || !aggregates.TryGetValue(aggregateId, out events))
+            {
+                throw new AggregateNotFoundException(aggregateType, aggregateId);
+            }
+
+            return Task.FromResult(events.AsEnumerable());
         }
 
         private void AddEvents(IEnumerable<IAggregateEvents> aggregateEventsCollection)

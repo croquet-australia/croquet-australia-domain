@@ -20,7 +20,7 @@ namespace CroquetAustralia.Domain.App
 
         public async Task<IEnumerable<IAggregateEvents>> HandleCommandAsync(RunSetup command)
         {
-            var applications = await _eventStore.GetAggregatesAsync<Application>();
+            var applications = await _eventStore.GetAllAsync<Application>();
 
             if (applications.Any())
             {

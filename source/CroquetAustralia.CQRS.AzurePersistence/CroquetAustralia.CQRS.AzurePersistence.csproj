@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E9A907C1-9AC1-4952-A81B-5993235BFF49}</ProjectGuid>
+    <ProjectGuid>{C4110FF5-1677-4A3F-97A2-3CE5A83445B3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CroquetAustralia.CQRS</RootNamespace>
-    <AssemblyName>CroquetAustralia.CQRS</AssemblyName>
+    <RootNamespace>CroquetAustralia.CQRS.AzurePersistence</RootNamespace>
+    <AssemblyName>CroquetAustralia.CQRS.AzurePersistence</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -39,12 +39,44 @@
       <HintPath>..\..\packages\EmptyStringGuard.Fody.1.0.6.0\lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\EmptyStringGuard.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Data.Edm.5.7.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Data.OData.5.7.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Data.Services.Client.5.7.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=6.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\WindowsAzure.Storage.6.2.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NullGuard, Version=1.4.5.0, Culture=neutral, PublicKeyToken=1958ac8092168428, processorArchitecture=MSIL">
       <HintPath>..\..\packages\NullGuard.Fody.1.4.5\lib\dotnet\NullGuard.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Spatial.5.7.0\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,35 +88,37 @@
     <Compile Include="..\CroquetAustralia.Domain\Properties\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="AggregateBase.cs" />
-    <Compile Include="AggregateEvents.cs" />
-    <Compile Include="Aggregate.cs" />
-    <Compile Include="ApplyEventInterfaceNotFoundException.cs" />
-    <Compile Include="CommandBase.cs" />
-    <Compile Include="CommandBus.cs" />
-    <Compile Include="CommandHandlerFinder.cs" />
-    <Compile Include="CommandHandlerNotFoundException.cs" />
-    <Compile Include="CommandHandlerProvider.cs" />
-    <Compile Include="CommandHandlers.cs" />
-    <Compile Include="Events.cs" />
-    <Compile Include="EventStoreExtensions.cs" />
-    <Compile Include="HandleCommandException.cs" />
-    <Compile Include="IAggregate.cs" />
-    <Compile Include="IApplyEvent.cs" />
-    <Compile Include="ICommand.cs" />
-    <Compile Include="ICommandBus.cs" />
-    <Compile Include="ICommandHandlerProvider.cs" />
-    <Compile Include="ICommandHandlers.cs" />
-    <Compile Include="IEvent.cs" />
-    <Compile Include="IAggregateEvents.cs" />
-    <Compile Include="IEventStore.cs" />
-    <Compile Include="IHandleCommand.cs" />
-    <Compile Include="IServiceProviderExtensions.cs" />
+    <Compile Include="AzureEventStore.cs" />
+    <Compile Include="Infrastructure\Clock.cs" />
+    <Compile Include="Infrastructure\EventDeserializer.cs" />
+    <Compile Include="Infrastructure\EventSerializer.cs" />
+    <Compile Include="Infrastructure\EventSerializerRowKeyGenerator.cs" />
+    <Compile Include="Infrastructure\EventTypes.cs" />
+    <Compile Include="Infrastructure\GuidFactory.cs" />
+    <Compile Include="Infrastructure\IClock.cs" />
+    <Compile Include="Infrastructure\IEventDeserializer.cs" />
+    <Compile Include="Infrastructure\IEventSerializer.cs" />
+    <Compile Include="Infrastructure\IEventSerializerRowKeyGenerator.cs" />
+    <Compile Include="Infrastructure\IEventTypes.cs" />
+    <Compile Include="Infrastructure\IGuidFactory.cs" />
+    <Compile Include="Infrastructure\ITableNameResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Infrastructure\TableNameResolver.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="FodyWeavers.xml" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CroquetAustralia.CQRS\CroquetAustralia.CQRS.csproj">
+      <Project>{e9a907c1-9ac1-4952-a81b-5993235bff49}</Project>
+      <Name>CroquetAustralia.CQRS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CroquetAustralia.Domain\CroquetAustralia.Domain.csproj">
+      <Project>{c86d3b2a-e9c8-4503-b502-df5831685eb5}</Project>
+      <Name>CroquetAustralia.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Fody.1.29.4\build\dotnet\Fody.targets" Condition="Exists('..\..\packages\Fody.1.29.4\build\dotnet\Fody.targets')" />

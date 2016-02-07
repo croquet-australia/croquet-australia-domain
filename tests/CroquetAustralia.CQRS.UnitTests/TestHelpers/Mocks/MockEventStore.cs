@@ -14,12 +14,22 @@ namespace CroquetAustralia.CQRS.UnitTests.TestHelpers.Mocks
             return Task.FromResult(0);
         }
 
-        public Task<TAggregate> GetAggregateAsync<TAggregate>(Guid aggregateId) where TAggregate : IAggregate, new()
+        public Task<IEnumerable<IAggregateEvents>> GetAllAsync<TAggregate>() where TAggregate : IAggregate
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<TAggregate>> GetAggregatesAsync<TAggregate>() where TAggregate : IAggregate, new()
+        public Task<IEnumerable<IAggregateEvents>> GetAllAsync(Type aggregateType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<IEvent>> GetEventsAsync<TAggregate>(Guid aggregateId) where TAggregate : IAggregate
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<IEvent>> GetEventsAsync(Type aggregateType, Guid aggregateId)
         {
             throw new NotImplementedException();
         }

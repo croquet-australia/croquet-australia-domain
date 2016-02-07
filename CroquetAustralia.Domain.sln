@@ -16,6 +16,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CroquetAustralia.CQRS", "so
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CroquetAustralia.CQRS.UnitTests", "tests\CroquetAustralia.CQRS.UnitTests\CroquetAustralia.CQRS.UnitTests.csproj", "{0498AD59-938D-4DE1-BFAD-F13DF4A0005D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CroquetAustralia.CQRS.AzurePersistence", "source\CroquetAustralia.CQRS.AzurePersistence\CroquetAustralia.CQRS.AzurePersistence.csproj", "{C4110FF5-1677-4A3F-97A2-3CE5A83445B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CroquetAustralia.CQRS.AzurePersistence.Specifications", "tests\CroquetAustralia.CQRS.AzurePersistence.Specifications\CroquetAustralia.CQRS.AzurePersistence.Specifications.csproj", "{1CF66A62-E2AC-4956-B727-0B9D493BD5B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests and Specifications", "Tests and Specifications", "{EC8CC916-DE5E-4CCF-88AD-0F1C56F50FD5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{BC1FD6D7-992D-48B0-94D5-A2EA8BF124A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,8 +46,24 @@ Global
 		{0498AD59-938D-4DE1-BFAD-F13DF4A0005D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0498AD59-938D-4DE1-BFAD-F13DF4A0005D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0498AD59-938D-4DE1-BFAD-F13DF4A0005D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4110FF5-1677-4A3F-97A2-3CE5A83445B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4110FF5-1677-4A3F-97A2-3CE5A83445B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4110FF5-1677-4A3F-97A2-3CE5A83445B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4110FF5-1677-4A3F-97A2-3CE5A83445B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CF66A62-E2AC-4956-B727-0B9D493BD5B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF66A62-E2AC-4956-B727-0B9D493BD5B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF66A62-E2AC-4956-B727-0B9D493BD5B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF66A62-E2AC-4956-B727-0B9D493BD5B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FF5658C0-C397-4DEF-B822-CE9036C42BBF} = {EC8CC916-DE5E-4CCF-88AD-0F1C56F50FD5}
+		{C86D3B2A-E9C8-4503-B502-DF5831685EB5} = {BC1FD6D7-992D-48B0-94D5-A2EA8BF124A8}
+		{E9A907C1-9AC1-4952-A81B-5993235BFF49} = {BC1FD6D7-992D-48B0-94D5-A2EA8BF124A8}
+		{0498AD59-938D-4DE1-BFAD-F13DF4A0005D} = {EC8CC916-DE5E-4CCF-88AD-0F1C56F50FD5}
+		{C4110FF5-1677-4A3F-97A2-3CE5A83445B3} = {BC1FD6D7-992D-48B0-94D5-A2EA8BF124A8}
+		{1CF66A62-E2AC-4956-B727-0B9D493BD5B3} = {EC8CC916-DE5E-4CCF-88AD-0F1C56F50FD5}
 	EndGlobalSection
 EndGlobal

@@ -7,7 +7,13 @@ namespace CroquetAustralia.CQRS
     public interface IEventStore
     {
         Task AddEventsAsync(IEnumerable<IAggregateEvents> aggregateEventsCollection);
-        Task<TAggregate> GetAggregateAsync<TAggregate>(Guid aggregateId) where TAggregate : IAggregate, new();
-        Task<IEnumerable<TAggregate>> GetAggregatesAsync<TAggregate>() where TAggregate : IAggregate, new();
+
+        Task<IEnumerable<IAggregateEvents>> GetAllAsync<TAggregate>() where TAggregate : IAggregate;
+
+        Task<IEnumerable<IAggregateEvents>> GetAllAsync(Type aggregateType);
+
+        Task<IEnumerable<IEvent>> GetEventsAsync<TAggregate>(Guid aggregateId) where TAggregate : IAggregate;
+
+        Task<IEnumerable<IEvent>> GetEventsAsync(Type aggregateType, Guid aggregateId);
     }
 }

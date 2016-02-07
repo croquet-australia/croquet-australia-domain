@@ -1,7 +1,6 @@
 using System;
 using CroquetAustralia.CQRS;
 using CroquetAustralia.Domain.Specifications.Mocks;
-using CroquetAustralia.Domain.Users;
 using Ninject;
 
 namespace CroquetAustralia.Domain.Specifications.Helpers
