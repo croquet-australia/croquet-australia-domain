@@ -96,6 +96,7 @@
     <Compile Include="Infrastructure\Clock.cs" />
     <Compile Include="Infrastructure\EventDeserializer.cs" />
     <Compile Include="Infrastructure\EventSerializer.cs" />
+    <Compile Include="Infrastructure\EventSerializerException.cs" />
     <Compile Include="Infrastructure\EventSerializerRowKeyGenerator.cs" />
     <Compile Include="Infrastructure\EventTypes.cs" />
     <Compile Include="Infrastructure\GuidFactory.cs" />
