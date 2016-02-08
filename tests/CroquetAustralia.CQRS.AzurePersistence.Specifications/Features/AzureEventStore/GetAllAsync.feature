@@ -5,6 +5,7 @@ Scenario: Event store is empty
     When I call AzureEventStore\.GetAllAsync\()
     Then an empty dictionary is returned
 
+@ignore # takes approximately 15 seconds to run
 Scenario: Event store is populated
     Given the event store has
         | id     | eventCount |
