@@ -5,10 +5,10 @@ namespace CroquetAustralia.Domain.Users
 {
     public class RegisteredUser : IEvent
     {
-        public RegisteredUser(RegisterUser command)
+        public RegisteredUser(Guid aggregateId, string emailAddress)
         {
-            AggregateId = command.AggregateId;
-            EmailAddress = command.EmailAddress;
+            AggregateId = aggregateId;
+            EmailAddress = emailAddress;
         }
 
         public Guid AggregateId { get; }

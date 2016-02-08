@@ -5,10 +5,10 @@ namespace CroquetAustralia.Domain.App
 {
     public class RanSetup : IEvent
     {
-        public RanSetup(RunSetup command)
+        public RanSetup(Guid aggregateId, string emailAddress)
         {
-            AggregateId = command.AggregateId;
-            EmailAddress = command.InitialAdministratorEmailAddress;
+            AggregateId = aggregateId;
+            EmailAddress = emailAddress;
         }
 
         public Guid AggregateId { get; }

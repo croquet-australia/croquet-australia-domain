@@ -29,7 +29,7 @@ namespace CroquetAustralia.Domain.App
 
             await _commandBus.SendCommandAsync(new RegisterUser(Guid.NewGuid(), command.InitialAdministratorEmailAddress));
 
-            return Events.For<Application>(command.AggregateId, new RanSetup(command));
+            return Events.For<Application>(command.AggregateId, new RanSetup(command.AggregateId, command.InitialAdministratorEmailAddress));
         }
     }
 }

@@ -97,7 +97,7 @@ namespace CroquetAustralia.Domain.Specifications.Steps.Application
             var actualEvents = _actual.Application.Events.Cast<RanSetup>();
             var expectedEvents = new[]
             {
-                new RanSetup(new RunSetup(_given.AggregateId, _given.EmailAddress))
+                new RanSetup(_given.AggregateId, _given.EmailAddress)
             };
 
             actualEvents.ShouldAllBeEquivalentTo(expectedEvents);
@@ -121,7 +121,7 @@ namespace CroquetAustralia.Domain.Specifications.Steps.Application
         {
             _actual.User.Events.Cast<RegisteredUser>().ShouldAllBeEquivalentTo(new[]
             {
-                new RegisteredUser(new RegisterUser(_actual.User.Id, _given.EmailAddress))
+                new RegisteredUser(_actual.User.Id, _given.EmailAddress)
             });
         }
 

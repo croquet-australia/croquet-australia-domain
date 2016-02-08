@@ -8,7 +8,7 @@ namespace CroquetAustralia.Domain.Users
     {
         public Task<IEnumerable<IAggregateEvents>> HandleCommandAsync(RegisterUser command)
         {
-            return Task.FromResult(Events.For<User>(command.AggregateId, new RegisteredUser(command)));
+            return Task.FromResult(Events.For<User>(command.AggregateId, new RegisteredUser(command.AggregateId, command.EmailAddress)));
         }
     }
 }
