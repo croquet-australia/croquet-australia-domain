@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CroquetAustralia.CQRS.AzurePersistence.Infrastructure;
-using CroquetAustralia.Domain.Exceptions;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 

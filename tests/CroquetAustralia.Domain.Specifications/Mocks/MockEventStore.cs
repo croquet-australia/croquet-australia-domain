@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CroquetAustralia.CQRS;
-using CroquetAustralia.Domain.Exceptions;
 
 namespace CroquetAustralia.Domain.Specifications.Mocks
 {

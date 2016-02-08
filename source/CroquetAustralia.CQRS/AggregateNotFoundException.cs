@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CroquetAustralia.Domain.Exceptions
+namespace CroquetAustralia.CQRS
 {
     public class AggregateNotFoundException : Exception
     {

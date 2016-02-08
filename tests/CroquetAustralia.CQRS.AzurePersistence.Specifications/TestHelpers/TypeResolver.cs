@@ -10,7 +10,7 @@ namespace CroquetAustralia.CQRS.AzurePersistence.Specifications.TestHelpers
         private readonly Assembly[] _assemblies;
 
         public TypeResolver()
-            : this(typeof(DomainCommandBus).Assembly, typeof(ArgumentOutOfRangeException).Assembly)
+            : this(typeof(DomainCommandBus).Assembly, typeof(ArgumentOutOfRangeException).Assembly, typeof(CommandBus).Assembly)
         {
         }
 

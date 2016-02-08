@@ -61,7 +61,6 @@
     <Compile Include="App\RunSetup.cs" />
     <Compile Include="App\SetupCannotBeRepeatedException.cs" />
     <Compile Include="DomainCommandBus.cs" />
-    <Compile Include="Exceptions\AggregateNotFoundException.cs" />
     <Compile Include="Users\RegisterUser.cs" />
     <Compile Include="Users\RegisteredUser.cs" />
     <Compile Include="Users\User.cs" />
@@ -73,7 +72,9 @@
     <None Include="FodyWeavers.xml" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CroquetAustralia.CQRS\CroquetAustralia.CQRS.csproj">
       <Project>{e9a907c1-9ac1-4952-a81b-5993235bff49}</Project>

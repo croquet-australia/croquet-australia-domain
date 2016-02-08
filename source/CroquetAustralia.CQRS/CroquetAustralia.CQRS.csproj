@@ -59,6 +59,7 @@
     <Compile Include="AggregateBase.cs" />
     <Compile Include="AggregateEvents.cs" />
     <Compile Include="Aggregate.cs" />
+    <Compile Include="AggregateNotFoundException.cs" />
     <Compile Include="ApplyEventInterfaceNotFoundException.cs" />
     <Compile Include="CommandBase.cs" />
     <Compile Include="CommandBus.cs" />
