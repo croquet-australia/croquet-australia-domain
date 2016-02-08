@@ -173,9 +173,12 @@
     <Compile Include="Steps\Infrastructure\TableNameResolverSteps.cs" />
     <Compile Include="TestHelpers\ActualData.cs" />
     <Compile Include="TestHelpers\Dummies\DummyAggregate.cs" />
+    <Compile Include="TestHelpers\Dummy.cs" />
     <Compile Include="TestHelpers\GivenData.cs" />
     <Compile Include="TestHelpers\TestContext.cs" />
     <Compile Include="TestHelpers\TypeResolver.cs" />
+    <Compile Include="UnitTests\AzurePersistence\SerializationTests.cs" />
+    <Compile Include="UnitTests\UnitTestBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

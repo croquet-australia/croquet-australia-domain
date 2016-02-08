@@ -27,7 +27,7 @@ namespace CroquetAustralia.CQRS.AzurePersistence.Specifications.TestHelpers
         public ITableNameResolver TableNameResolver => _kernel.Get<ITableNameResolver>();
         public TypeResolver TypeResolver { get; }
 
-        private static IKernel CreateKernel()
+        internal static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
 
