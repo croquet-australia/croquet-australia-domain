@@ -64,7 +64,6 @@ namespace CroquetAustralia.CQRS.AzurePersistence
 
                     var table = await CreateCloudTableAsync(aggregateEvents.AggregateType);
                     await table.ExecuteBatchAsync(batchOperation);
-
                 } while ((taken += maximumOperationInABatch) < events.Length);
             }
         }

@@ -35,6 +35,10 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Anotar.Custom, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Anotar.Custom.Fody.2.20.0\lib\net35\Anotar.Custom.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="EmptyStringGuard, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EmptyStringGuard.Fody.1.0.6.0\lib\portable-net4+sl4+wp7+win8+MonoAndroid16+MonoTouch40\EmptyStringGuard.dll</HintPath>
       <Private>False</Private>
@@ -118,6 +122,10 @@
     <ProjectReference Include="..\CroquetAustralia.Domain\CroquetAustralia.Domain.csproj">
       <Project>{c86d3b2a-e9c8-4503-b502-df5831685eb5}</Project>
       <Name>CroquetAustralia.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CroquetAustralia.Logging\CroquetAustralia.Logging.csproj">
+      <Project>{dcbcfbf0-0699-47aa-ac24-803d1944d49b}</Project>
+      <Name>CroquetAustralia.Logging</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

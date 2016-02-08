@@ -1,6 +1,7 @@
 ﻿using System;
 using CroquetAustralia.CQRS.AzurePersistence.Specifications.TestHelpers;
 using CroquetAustralia.CQRS.AzurePersistence.Specifications.TestHelpers.Dummies;
+using CroquetAustralia.Logging;
 using FluentAssertions;
 using OpenMagic.Exceptions;
 using TechTalk.SpecFlow;
@@ -24,6 +25,12 @@ namespace CroquetAustralia.CQRS.AzurePersistence.Specifications.Steps
             _given = given;
             _actual = actual;
             _typeResolver = typeResolver;
+        }
+
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            LoggerConfiguration.SetChainsawLevel(LoggerLevel.Trace);
         }
 
         [Given(@"todo")]

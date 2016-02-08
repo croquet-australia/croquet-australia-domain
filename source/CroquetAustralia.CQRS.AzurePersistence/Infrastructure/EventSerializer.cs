@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Anotar.Custom;
 using Microsoft.WindowsAzure.Storage.Table;
 
 namespace CroquetAustralia.CQRS.AzurePersistence.Infrastructure
@@ -17,6 +18,8 @@ namespace CroquetAustralia.CQRS.AzurePersistence.Infrastructure
 
         public ITableEntity Serialize(Guid aggregateId, IEvent @event)
         {
+            LogTo.Trace(() => $"Serialize(aggregateId: {aggregateId}, event: {@event.GetType()})");
+
             if (aggregateId == Guid.Empty)
             {
                 throw new ArgumentOutOfRangeException(nameof(aggregateId), "Value cannot be empty.");

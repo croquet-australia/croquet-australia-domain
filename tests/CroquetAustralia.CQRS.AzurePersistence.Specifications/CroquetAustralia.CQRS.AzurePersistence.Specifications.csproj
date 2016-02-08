@@ -226,6 +226,10 @@
       <Project>{c86d3b2a-e9c8-4503-b502-df5831685eb5}</Project>
       <Name>CroquetAustralia.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\source\CroquetAustralia.Logging\CroquetAustralia.Logging.csproj">
+      <Project>{dcbcfbf0-0699-47aa-ac24-803d1944d49b}</Project>
+      <Name>CroquetAustralia.Logging</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
